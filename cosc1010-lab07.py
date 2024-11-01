@@ -1,8 +1,8 @@
-# Your Name Here
+# Garrett Eker
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10/31/24
+# Lab 07
+# Lab Section: 13
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -19,7 +19,17 @@
 
 factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+while True:
+    inumber = input("please input a positive number")
+    if inumber.isdigit():
+        inumber = int(inumber)
+        while inumber > 0:
+            factorial *= inumber
+            inumber -= 1
+        print(f"The result of the factorial based on the given bound is {factorial}")
+        break
+    else:
+        print("please do valid input")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
@@ -38,6 +48,18 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
+while True:
+    numbers = input("what numbers would you like to add or type exit to stop")
+    if numbers.lower() == "exit":
+        break
+    else:
+        if numbers.isdigit():
+            num_sum += int(numbers)
+        elif numbers.lstrip("-").isdigit():
+            numbers = numbers.lstrip("-")
+            num_sum -= int(numbers)
+        else:
+            print("please enter another number")
 
 print(f"Your final sum is {num_sum}")
 
