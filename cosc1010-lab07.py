@@ -20,7 +20,7 @@
 factorial = 1
 
 while True:
-    inumber = input("please input a positive number")
+    inumber = input("please input a positive number:")
     if inumber.isdigit():
         inumber = int(inumber)
         while inumber > 0:
@@ -49,7 +49,7 @@ print("*"*75)
 
 num_sum = 0 
 while True:
-    numbers = input("what numbers would you like to add or type exit to stop")
+    numbers = input("what numbers would you like to add or type exit to stop:")
     if numbers.lower() == "exit":
         break
     else:
@@ -81,4 +81,33 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+def calc(input1):
+    operators = ['+','-','/','*','%']
+    for operator in operators:
+        if operator in input1:
+            parts = input1.split(operator)
+            operand1 = parts[0].strip()
+            operand2 = parts[1].strip()
+            if operand1.isnumeric() and operand2.isnumeric():
+                num1 = int(operand1)
+                num2 = int(operand2)
+                if operator == '+':
+                    return num1 + num2
+                elif operator == '-':
+                    return num1 - num2
+                elif operator == '/':
+                    return num1 / num2
+                elif operator == '%':
+                    return num1 % num2
+                elif operator == '*':
+                    return num1 * num2
+            else:
+                print("operands must be integers")
+def calc_input():
+    while True:
+        user_input = input("enter calculation(format: operand operator operand) or exit to quit:")
+        if user_input.lower() == 'exit':
+            break
+        result = calc(user_input)
+        print(result)
+calc_input()
